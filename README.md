@@ -125,6 +125,11 @@ chipsInput.addChipsListener(new ChipsInput.ChipsListener() {
             public void onTextChanged(CharSequence text) {
                 // text changed
             }
+            
+            @Override
+            public void onActionDone(CharSequence text) {
+            	// action done
+            }
         });
 ```
 
@@ -276,6 +281,7 @@ You can also download the sample APK [here](https://github.com/pchmn/MaterialChi
 
 ```
 Copyright 2017 pchmn
+Copyright 2018 sikeeoh
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
