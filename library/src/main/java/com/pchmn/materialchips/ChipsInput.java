@@ -72,7 +72,6 @@ public class ChipsInput extends ScrollViewMaxHeight {
     private ChipValidator mChipValidator;
     private ViewGroup filterableListLayout;
     private ChipsInputEditText mEditText;
-    private int textChangedStartValue;
 
     public ChipsInput(Context context) {
         super(context);
@@ -160,7 +159,6 @@ public class ChipsInput extends ScrollViewMaxHeight {
     }
 
     private void initEditText() {
-        textChangedStartValue = -1;
         mEditText = new ChipsInputEditText(mContext);
         if (mHintColor != null)
             mEditText.setHintTextColor(mHintColor);
@@ -212,10 +210,7 @@ public class ChipsInput extends ScrollViewMaxHeight {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (textChangedStartValue != start) {
-                    ChipsInput.this.onTextChanged(s);
-                }
-                textChangedStartValue = start;
+                ChipsInput.this.onTextChanged(s);
             }
 
             @Override
