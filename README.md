@@ -1,13 +1,24 @@
-# MaterialChipsInput
+# MaterialChipsInput for Android Renewal
+
+### This project is a fork of pchmn/MaterialChipsInput project.
+The project provides flexibility in customization in addition to adding brand new features listed below
+
+* Support onActionDone Event
+* It reflected the pull requests that solved the issues of existing projects.
+* Remove Android Studio generated Manifest attributes
+* Remove ButterKnife
+
+## Introduce
 
 Implementation of Material Design [Chips](https://material.io/guidelines/components/chips.html) component for Android. The library provides two views : [`ChipsInput`](#chipsinput) and [`ChipView`](#chipview).
 
-[![Release](https://jitpack.io/v/pchmn/MaterialChipsInput.svg)](https://jitpack.io/#pchmn/MaterialChipsInput)
+[![Release](https://jitpack.io/v/sikeeoh/MaterialChipsInput.svg)](https://jitpack.io/#sikeeoh/MaterialChipsInput)
 
-<img src="https://github.com/pchmn/MaterialChipsInput/blob/master/docs/demo2.gif" alt="Demo" height="600px"/>
+
+<img src="https://github.com/sikeeoh/MaterialChipsInput/blob/master/docs/demo2.gif" alt="Demo" height="600px"/>
 
 ## Demo
-[Download sample-v1.0.8.apk](https://github.com/pchmn/MaterialChipsInput/raw/master/docs/material-chips-input-sample-v1.0.8.apk)
+[Download sample-v1.1.0.apk](https://github.com/sikeeoh/MaterialChipsInput/raw/master/docs/material-chips-input-sample-v1.1.0.apk)
 
 ## Setup
 
@@ -26,7 +37,7 @@ allprojects {
 In your app level build.gradle :
 ```java
 dependencies {
-    compile 'com.github.pchmn:MaterialChipsInput:1.0.8'
+    compile 'com.github.sikeeoh:MaterialChipsInput:1.1.0'
 }      
 ```
 <br><br>
@@ -201,7 +212,7 @@ Attribute | Type | Description | Default
 ## ChipView
 This view implements the chip component according to the [Material Design guidelines](https://material.io/guidelines/components/chips.html#chips-usage) with configurable options (background color, text color, ...).
 
-<img src="https://github.com/pchmn/MaterialChipsInput/blob/master/docs/chips-examples.png" alt="Chips examples" width="50%"/>
+<img src="https://github.com/sikeeoh/MaterialChipsInput/blob/master/docs/chips-examples.png" alt="Chips examples" width="50%"/>
 
 ### Usage
 ```xml
@@ -267,9 +278,9 @@ chip.setOnDeleteClicked(new View.OnClickListener() {
 <br><br>
 ## Sample
 
-A sample app with some use cases of the library is available on this [link](https://github.com/pchmn/MaterialChipsInput/tree/master/sample)
+A sample app with some use cases of the library is available on this [link](https://github.com/sikeeoh/MaterialChipsInput/tree/master/sample)
 
-You can also download the sample APK [here](https://github.com/pchmn/MaterialChipsInput/raw/master/docs/material-chips-input-sample-v1.0.0.apk)
+You can also download the sample APK [here](https://github.com/sikeeoh/MaterialChipsInput/raw/master/docs/material-chips-input-sample-v1.0.0.apk)
 
 ## Credits
 
