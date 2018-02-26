@@ -1,13 +1,5 @@
 package com.pchmn.materialchips.adapter;
 
-import com.pchmn.materialchips.ChipView;
-import com.pchmn.materialchips.ChipsInput;
-import com.pchmn.materialchips.model.ChipInterface;
-import com.pchmn.materialchips.util.ViewUtil;
-import com.pchmn.materialchips.views.ChipsInputEditText;
-import com.pchmn.materialchips.views.DetailedChipView;
-import com.pchmn.materialchips.views.FilterableListView;
-
 import android.content.Context;
 import android.os.Build;
 import android.support.v7.widget.RecyclerView;
@@ -16,6 +8,14 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+
+import com.pchmn.materialchips.ChipView;
+import com.pchmn.materialchips.ChipsInput;
+import com.pchmn.materialchips.model.ChipInterface;
+import com.pchmn.materialchips.util.ViewUtil;
+import com.pchmn.materialchips.views.ChipsInputEditText;
+import com.pchmn.materialchips.views.DetailedChipView;
+import com.pchmn.materialchips.views.FilterableListView;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -269,6 +269,7 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         mChipList.remove(position);
         // notify listener
         notifyItemRangeChanged(position, getItemCount());
+        mChipsInput.onChipRemoved(chip, mChipList.size());
         // if 0 chip
         if (mChipList.size() == 0) {
             mEditText.setHint(mHintLabel);
