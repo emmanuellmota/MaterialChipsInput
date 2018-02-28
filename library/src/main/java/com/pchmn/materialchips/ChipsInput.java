@@ -171,7 +171,7 @@ public class ChipsInput extends ScrollViewMaxHeight {
         mEditText.setHint(mHint);
         mEditText.setBackgroundResource(android.R.color.transparent);
         // prevent fullscreen on landscape
-        mEditText.setImeOptions(EditorInfo.IME_FLAG_NO_EXTRACT_UI);
+        mEditText.setImeOptions(EditorInfo.IME_FLAG_NO_EXTRACT_UI | EditorInfo.IME_ACTION_DONE);
         mEditText.setPrivateImeOptions("nm");
         // no suggestion
         mEditText.setInputType(InputType.TYPE_TEXT_VARIATION_FILTER | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
