@@ -103,10 +103,6 @@ public class ContactListActivity extends AppCompatActivity {
                 String phoneNumber = null;
                 String id = phones.getString(phones.getColumnIndex(ContactsContract.Contacts._ID));
                 String name = phones.getString(phones.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
-                String avatarUriString = phones.getString(phones.getColumnIndex(ContactsContract.Contacts.PHOTO_THUMBNAIL_URI));
-                Uri avatarUri = null;
-                if(avatarUriString != null)
-                    avatarUri = Uri.parse(avatarUriString);
 
                 // get phone number
                 if (Integer.parseInt(phones.getString(phones.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER))) > 0) {
@@ -122,7 +118,7 @@ public class ContactListActivity extends AppCompatActivity {
 
                 }
 
-                ContactChip contactChip = new ContactChip(id, avatarUri, name, phoneNumber);
+                ContactChip contactChip = new ContactChip(id, name, phoneNumber);
                 // add contact to the list
                 mContactList.add(contactChip);
             }

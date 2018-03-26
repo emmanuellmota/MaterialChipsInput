@@ -12,7 +12,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.ImageButton;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.pchmn.materialchips.R;
@@ -20,17 +21,14 @@ import com.pchmn.materialchips.model.ChipInterface;
 import com.pchmn.materialchips.util.ColorUtil;
 import com.pchmn.materialchips.util.LetterTileProvider;
 
-import de.hdodenhof.circleimageview.CircleImageView;
 
-
-public class DetailedChipView extends RelativeLayout {
+public class DetailedChipView extends LinearLayout {
 
     private static final String TAG = DetailedChipView.class.toString();
     // context
     private Context mContext;
     // xml elements
-    private RelativeLayout mContentLayout;
-    private CircleImageView mAvatarIconImageView;
+    private LinearLayout mContentLayout;
     private TextView mNameTextView;
     private TextView mInfoTextView;
     private ImageButton mDeleteButton;
@@ -60,8 +58,7 @@ public class DetailedChipView extends RelativeLayout {
         // inflate layout
         View rootView = inflate(getContext(), R.layout.detailed_chip_view, this);
 
-        mContentLayout = (RelativeLayout) rootView.findViewById(R.id.content);
-        mAvatarIconImageView = (CircleImageView) rootView.findViewById(R.id.avatar_icon);
+        mContentLayout = (LinearLayout) rootView.findViewById(R.id.content);
         mNameTextView = (TextView) rootView.findViewById(R.id.name);
         mInfoTextView = (TextView) rootView.findViewById(R.id.info);
         mDeleteButton = (ImageButton) rootView.findViewById(R.id.delete_button);
@@ -110,18 +107,6 @@ public class DetailedChipView extends RelativeLayout {
         setClickable(false);
     }
 
-    public void setAvatarIcon(Drawable icon) {
-        mAvatarIconImageView.setImageDrawable(icon);
-    }
-
-    public void setAvatarIcon(Bitmap icon) {
-        mAvatarIconImageView.setImageBitmap(icon);
-    }
-
-    public void setAvatarIcon(Uri icon) {
-        mAvatarIconImageView.setImageURI(icon);
-    }
-
     public void setName(String name) {
         mNameTextView.setText(name);
     }
@@ -159,21 +144,19 @@ public class DetailedChipView extends RelativeLayout {
     }
 
     public void alignLeft() {
-        RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) mContentLayout.getLayoutParams();
+        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) mContentLayout.getLayoutParams();
         params.leftMargin = 0;
         mContentLayout.setLayoutParams(params);
     }
 
     public void alignRight() {
-        RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) mContentLayout.getLayoutParams();
+        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) mContentLayout.getLayoutParams();
         params.rightMargin = 0;
         mContentLayout.setLayoutParams(params);
     }
 
     public static class Builder {
         private Context context;
-        private Uri avatarUri;
-        private Drawable avatarDrawable;
         private String name;
         private String info;
         private ColorStateList textColor;
@@ -182,16 +165,6 @@ public class DetailedChipView extends RelativeLayout {
 
         public Builder(Context context) {
             this.context = context;
-        }
-
-        public Builder avatar(Uri avatarUri) {
-            this.avatarUri = avatarUri;
-            return this;
-        }
-
-        public Builder avatar(Drawable avatarDrawable) {
-            this.avatarDrawable = avatarDrawable;
-            return this;
         }
 
         public Builder name(String name) {
@@ -205,8 +178,6 @@ public class DetailedChipView extends RelativeLayout {
         }
 
         public Builder chip(ChipInterface chip) {
-            this.avatarUri = chip.getAvatarUri();
-            this.avatarDrawable = chip.getAvatarDrawable();
             this.name = chip.getLabel();
             this.info = chip.getInfo();
             return this;
@@ -235,13 +206,6 @@ public class DetailedChipView extends RelativeLayout {
     private static DetailedChipView newInstance(Builder builder) {
         DetailedChipView detailedChipView = new DetailedChipView(builder.context);
         // avatar
-        if(builder.avatarUri != null)
-            detailedChipView.setAvatarIcon(builder.avatarUri);
-        else if(builder.avatarDrawable != null)
-            detailedChipView.setAvatarIcon(builder.avatarDrawable);
-        else
-            detailedChipView.setAvatarIcon(mLetterTileProvider.getLetterTile(builder.name));
-
         // background color
         if(builder.backgroundColor != null)
             detailedChipView.setBackGroundcolor(builder.backgroundColor);

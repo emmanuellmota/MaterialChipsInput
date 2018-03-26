@@ -51,7 +51,6 @@ public class ChipsInput extends ScrollViewMaxHeight {
     private ColorStateList mTextColor;
     private int mMaxRows = 2;
     private ColorStateList mChipLabelColor;
-    private boolean mChipHasAvatarIcon = true;
     private boolean mChipDeletable = false;
     private Drawable mChipDeleteIcon;
     private ColorStateList mChipDeleteIconColor;
@@ -115,8 +114,6 @@ public class ChipsInput extends ScrollViewMaxHeight {
                 //setVerticalScrollBarEnabled(true);
                 // chip label color
                 mChipLabelColor = a.getColorStateList(R.styleable.ChipsInput_chip_labelColor);
-                // chip avatar icon
-                mChipHasAvatarIcon = a.getBoolean(R.styleable.ChipsInput_chip_hasAvatarIcon, true);
                 // chip delete icon
                 mChipDeletable = a.getBoolean(R.styleable.ChipsInput_chip_deletable, false);
                 mChipDeleteIconColor = a.getColorStateList(R.styleable.ChipsInput_chip_deleteIconColor);
@@ -227,28 +224,13 @@ public class ChipsInput extends ScrollViewMaxHeight {
         mChipsAdapter.addChip(chip);
     }
 
-    public void addChip(Object id, Drawable icon, String label, String info) {
-        Chip chip = new Chip(id, icon, label, info);
-        mChipsAdapter.addChip(chip);
-    }
-
-    public void addChip(Drawable icon, String label, String info) {
-        Chip chip = new Chip(icon, label, info);
-        mChipsAdapter.addChip(chip);
-    }
-
-    public void addChip(Object id, Uri iconUri, String label, String info) {
-        Chip chip = new Chip(id, iconUri, label, info);
-        mChipsAdapter.addChip(chip);
-    }
-
-    public void addChip(Uri iconUri, String label, String info) {
-        Chip chip = new Chip(iconUri, label, info);
+    public void addChip(Object id, String label, String info) {
+        Chip chip = new Chip(id, label, info);
         mChipsAdapter.addChip(chip);
     }
 
     public void addChip(String label, String info) {
-        ChipInterface chip = new Chip(label, info);
+        Chip chip = new Chip(label, info);
         mChipsAdapter.addChip(chip);
     }
 
@@ -272,7 +254,6 @@ public class ChipsInput extends ScrollViewMaxHeight {
         int padding = ViewUtil.dpToPx(4);
         ChipView chipView = new ChipView.Builder(mContext)
                 .labelColor(mChipLabelColor)
-                .hasAvatarIcon(mChipHasAvatarIcon)
                 .deletable(mChipDeletable)
                 .deleteIcon(mChipDeleteIcon)
                 .deleteIconColor(mChipDeleteIconColor)
@@ -364,14 +345,6 @@ public class ChipsInput extends ScrollViewMaxHeight {
 
     public void setChipLabelColor(ColorStateList mLabelColor) {
         this.mChipLabelColor = mLabelColor;
-    }
-
-    public void setChipHasAvatarIcon(boolean mHasAvatarIcon) {
-        this.mChipHasAvatarIcon = mHasAvatarIcon;
-    }
-
-    public boolean chipHasAvatarIcon() {
-        return mChipHasAvatarIcon;
     }
 
     public void setChipDeletable(boolean mDeletable) {

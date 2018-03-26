@@ -25,7 +25,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="16dp"
                 app:label="Chip 1"
-                app:hasAvatarIcon="false"
                 app:deletable="false"/>
 
             <com.pchmn.materialchips.ChipView
@@ -34,7 +33,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="16dp"
                 app:label="Chip 2"
-                app:hasAvatarIcon="false"
                 app:deletable="true"/>
 
             <com.pchmn.materialchips.ChipView
@@ -42,7 +40,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:label="Chip 3"
-                app:avatarIcon="@drawable/avatar"
                 app:deletable="true" />
 
         </LinearLayout>
@@ -59,8 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginRight="16dp"
-                app:label="Chip 4"
-                app:hasAvatarIcon="true" />
+                app:label="Chip 4" />
 
             <com.pchmn.materialchips.ChipView
                 android:visibility="gone"
@@ -92,7 +88,6 @@
                 android:layout_marginTop="16dp"
                 app:label="Chip 6"
                 app:labelColor="@android:color/white"
-                app:avatarIcon="@drawable/avatar"
                 app:backgroundColor="@android:color/holo_blue_light"
                 app:deletable="true"
                 app:deleteIconColor="@android:color/white" />

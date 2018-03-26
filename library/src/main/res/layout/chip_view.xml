@@ -15,14 +15,6 @@
         android:clickable="true"
         android:background="@drawable/ripple_chip_view">
 
-        <!-- avatar -->
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/icon"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:src="@drawable/avatar"
-            android:visibility="gone"/>
-
         <!-- label -->
         <TextView
             android:id="@+id/label"

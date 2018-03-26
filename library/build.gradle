@@ -32,9 +32,6 @@ dependencies {
     // recycler
     compile 'com.android.support:recyclerview-v7:27.1.0'
     compile 'com.beloo.widget:ChipsLayoutManager:0.3.7@aar'
-
-    // circle image view
-    compile 'de.hdodenhof:circleimageview:2.2.0'
 }
 
 apply plugin: 'com.github.dcendents.android-maven'

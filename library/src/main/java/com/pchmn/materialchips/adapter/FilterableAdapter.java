@@ -26,8 +26,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
-import de.hdodenhof.circleimageview.CircleImageView;
-
 import static android.view.View.GONE;
 
 public class FilterableAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements Filterable {
@@ -107,13 +105,11 @@ public class FilterableAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     private class ItemViewHolder extends RecyclerView.ViewHolder {
 
-        private CircleImageView mAvatar;
         private TextView mLabel;
         private TextView mInfo;
 
         ItemViewHolder(View view) {
             super(view);
-            mAvatar = (CircleImageView) view.findViewById(R.id.avatar);
             mLabel = (TextView) view.findViewById(R.id.label);
             mInfo = (TextView) view.findViewById(R.id.info);
         }
@@ -129,20 +125,6 @@ public class FilterableAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         ItemViewHolder itemViewHolder = (ItemViewHolder) holder;
         final ChipInterface chip = getItem(position);
-
-        // avatar
-        if (mChipsInput.chipHasAvatarIcon() && chip.getAvatarUri() != null) {
-            itemViewHolder.mAvatar.setVisibility(View.VISIBLE);
-            itemViewHolder.mAvatar.setImageURI(chip.getAvatarUri());
-        } else if (mChipsInput.chipHasAvatarIcon() && chip.getAvatarDrawable() != null) {
-            itemViewHolder.mAvatar.setVisibility(View.VISIBLE);
-            itemViewHolder.mAvatar.setImageDrawable(chip.getAvatarDrawable());
-        } else if (mChipsInput.chipHasAvatarIcon()) {
-            itemViewHolder.mAvatar.setVisibility(View.VISIBLE);
-            itemViewHolder.mAvatar.setImageBitmap(mLetterTileProvider.getLetterTile(chip.getLabel()));
-        } else {
-            itemViewHolder.mAvatar.setVisibility(GONE);
-        }
 
         // label
         itemViewHolder.mLabel.setText(chip.getLabel());
